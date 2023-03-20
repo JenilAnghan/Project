@@ -1,0 +1,82 @@
+{% extends 'seller_header.html' %}
+{% load static %}
+  
+{% block content %}
+
+
+	<div class="sidebar-overlay"></div>
+
+
+	<!--Content Start-->
+	<div class="content-start transition "> 
+		<div class="container-fluid dashboard">
+			<div class="content-header">
+				<h1>Hero</h1>
+				<p>Components that can be used to make something bigger than the header</p>
+			</div>
+            
+            <div class="row">
+                <div class="col-12 mb-4">
+                  <div class="hero bg-primary text-white">
+                    <div class="hero-inner">
+                      <h2>Welcome Back, Drew!</h2>
+                      <p class="lead">This page is a place to manage posts, categories and more.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 mb-4">
+                  <div class="hero bg-primary text-white">
+                    <div class="hero-inner">
+                      <h2>Welcome, Andreew!</h2>
+                      <p class="lead">You almost arrived, complete the information about your account to complete registration.</p>
+                      <div class="mt-4">
+                        <a href="#" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="far fa-user"></i> Setup Account</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+ 
+            
+                <div class="col-12 mb-4">
+                  <div class="hero text-white hero-bg-image" style="background-image: url('assets/images/hero/bg.webp');">
+                    <div class="hero-inner">
+                      <h2>Welcome, John!</h2>
+                      <p class="lead">You almost arrived, complete the information about your account to complete registration.</p>
+                      <div class="mt-4">
+                        <a href="#" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="far fa-user"></i> Setup Account</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+		 
+            </div><!-- End Container-->
+        </div><!-- End Content-->
+
+	<!-- Footer -->				
+
+
+	<!-- Preloader -->
+	<div class="loader">
+		<div class="spinner-border text-light" role="status">
+			<span class="sr-only">Loading...</span>
+		</div>
+	</div>
+	
+	<!-- Loader -->
+	<div class="loader-overlay"></div>
+
+	<!-- General JS Scripts -->
+	<script src="{% static 'assets/js/atrana.js' %}"></script>
+
+	<!-- JS Libraies -->
+	<script src="{% static 'assets/modules/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/modules/bootstrap-5.1.3/js/bootstrap.bundle.min.js' %}"></script>
+	<script src="{% static 'assets/modules/popper/popper.min.js' %}"></script>
+
+    <!-- Template JS File -->
+	<script src="{% static 'assets/js/script.js' %}"></script>
+	<script src="{% static 'assets/js/custom.js' %}"></script>
+ </body>
+</html>
+{% endblock %}

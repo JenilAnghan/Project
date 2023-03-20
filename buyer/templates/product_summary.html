@@ -1,0 +1,103 @@
+{% extends 'header.html' %}
+{% load static %}
+
+<!-- Header End====================================================================== -->
+
+{% block content %}
+<div id="mainBody">
+	<div class="container">
+	<div class="row">
+<!-- Sidebar ================================================== -->
+
+<!-- Sidebar end=============================================== -->
+	<div class="span9">
+
+	
+			<button>
+        <a href="{% url 'index' %}">Continue Shopping</a>
+      </button> 
+	<table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Picture</th>
+                  <th>Product Name</th>
+                  <th>Remove</th>
+                  <th>Price</th>
+				</tr>
+              </thead>
+
+
+              <tbody>
+				{% for i in my_cart_data %}
+
+
+                <tr>
+                  <td> <img width="60" src="{{i.pic.url}}" alt=""/></td>
+                  <td>{{i.product_name}}<br/></td>
+				  <td>
+					<div class="input-append"><button><a href="{% url 'del_cart_item' i.id %}">DELETE</a></button>			</div>
+				  </td>
+                  <td>${{i.price}}</td>
+                
+                </tr>
+
+
+				{% endfor %}				
+				
+				 <tr>
+                  <td colspan="3" style="text-align:right" ></td>
+                  <td class="label label-important" style="display:block"> <strong> You Have TO Pay: ${{t_amount}} </strong></td>
+                </tr>
+				</tbody>
+            </table>
+		
+		
+
+			<!-- <button ></button> -->
+			<button id="pay-btn"><a href="{% url 'index' %}" ></a> Make A Payment </button>
+	
+</div>
+</div></div>
+</div>
+<!-- MainBody End ============================= -->
+<!-- Footer ================================================================== -->
+	
+
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    var options = {
+       
+      // Enter the Key ID generated from the Dashboard
+      key: "{{ razorpay_merchant_key }}",
+       
+      // Amount is in currency subunits.
+      // Default currency is INR. Hence,
+      // 50000 refers to 50000 paise
+      amount: "{{ razorpay_amount }}",
+      currency: "{{ currency }}",
+       
+      // Your/store name.
+      name: "Dj Razorpay",
+       
+      // Pass the `id` obtained in the response of Step 1
+      order_id: "{{ razorpay_order_id }}",
+      callback_url: "{{ callback_url }}",
+    };
+     
+    // initialise razorpay with the options.
+    var rzp1 = new Razorpay(options);
+     
+    // add event listener to the payment button.
+    document.getElementById("pay-btn").onclick = function (e) {
+      rzp1.open();
+      e.preventDefault();
+    };
+  </script>
+</html>
+
+
+
+
+{% endblock %}
